@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.x" method="upgrade">
+    <name>com_customfields</name>
+    <author></author>
+    <creationDate>October 2016</creationDate>
+    <license>GNU General Public License version 2 or later; see	LICENSE</license>
+    <authorEmail></authorEmail>
+    <version>0.1.0</version>
+    <description>COM_CUSTOMFIELDS_XML_DESCRIPTION</description>
+        <administration>
+        <menu>com_customfields</menu>
+                <files folder="admin">
+                            <filename>Component.php</filename>                <filename>Router.php</filename>                <filename>customfields.php</filename>                            <folder>Controller</folder>                <folder>Model</folder>                <folder>view</folder>        </files>
+            </administration>
+</extension>
