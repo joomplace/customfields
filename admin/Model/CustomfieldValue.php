@@ -71,4 +71,39 @@ class CustomfieldValue extends Model
 		}
 		return $return;
 	}
+
+	public function getListQuery($conditioner = array())
+	{
+		if(is_array($conditioner) && isset($conditioner['key'])){
+			$conditioner['field'] = $this->parseKey($conditioner['key']);
+			unset($conditioner['key']);
+		}
+		if(is_array($conditioner) && isset($conditioner['context'])){
+			$context = $conditioner['context'];
+			unset($conditioner['context']);
+		}
+		$query = parent::getListQuery($conditioner);
+		if(isset($context)){
+			$cfields_model = new Customfield();
+			$db = $this->getDbo();
+			$query->leftJoin($db->qn($cfields_model->_table,'cf').' ON '.$db->qn('cf.id').'='.$db->qn('field'));
+			$query->where($db->qn('cf.context').'='.$db->q($context));
+		}
+		return $query;
+	}
+
+	public function getList($limitstart = false, $limit = false, $conditioner = array(), $by = 'field')
+	{
+		$list = parent::getList($limitstart, $limit, $conditioner, $by);
+		array_walk($list, function(&$item){
+			foreach ($item->_jsonEncode as $key){
+				if(Helper::isJson($item->$key)){
+					$item->$key = json_decode($item->$key);
+				}
+			}
+		});
+		return $list;
+	}
+
+
 }
