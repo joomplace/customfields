@@ -80,8 +80,8 @@ class CustomfieldValue extends Model
 		}
 		if(is_array($conditioner) && isset($conditioner['context'])){
 			$context = $conditioner['context'];
-			unset($conditioner['context']);
 		}
+		unset($conditioner['context']);
 		$query = parent::getListQuery($conditioner);
 		if(isset($context)){
 			$cfields_model = new Customfield();
