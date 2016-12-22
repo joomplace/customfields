@@ -31,7 +31,7 @@ $pagination = $this->pagination;
 		foreach ($columns as $column){
 			?>
 			<th>
-				<?php echo JHTML::_('grid.sort', 'TABLE_LIST_HEAD_'.strtoupper($column), $column, $this->listDirn, $this->listOrder); ?>
+				<?php echo JHTML::_('grid.sort', \Joomplace\Library\JooYii\Helpers\JYText::_('TABLE_LIST_HEAD_'.strtoupper($column)), $column, $this->listDirn, $this->listOrder); ?>
 			</th>
 			<?php
 		}

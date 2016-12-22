@@ -24,6 +24,7 @@ class Customfield extends Model
 		),
 		'definition' => array(
 			'mysql_type' => 'text',
+			'label' => 'Defenition',
 			'type' => '\\Joomplace\\Customfields\\Admin\\Fields\\FieldDefinition',
 			'default' => '{}',
 		)

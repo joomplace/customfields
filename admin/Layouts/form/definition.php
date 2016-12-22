@@ -98,6 +98,7 @@ JFactory::getDocument()->addScript('https://ajax.googleapis.com/ajax/libs/angula
 			<option value="tel">Phone number</option>
 			<option value="checkboxes">Checkboxes</option>
 			<option value="url">Url</option>
+			<option value="\Joomplace\Library\JooYii\Fields\Rating">Rating</option>
 		</select>
 		<label>
 			Label
